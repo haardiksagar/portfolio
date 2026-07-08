@@ -24,6 +24,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className="font-body bg-ink text-paper antialiased">
+        {/* {children} is where Next.js automatically injects your page.tsx content */}
         {children}
       </body>
     </html>
