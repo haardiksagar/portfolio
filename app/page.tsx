@@ -1,4 +1,5 @@
 import Header from "./components/Header";
+import AboutMe from "./components/AboutMe";
 import Currently from "./components/Currently";
 import AccordionList from "./components/AccordionList";
 import Terminal from "./components/Terminal";
@@ -11,6 +12,8 @@ export default function Home() {
   return (
     <main className="mx-auto max-w-content px-6 sm:px-8 py-16 sm:py-24">
       <Header />
+
+      <AboutMe />
 
       <Currently />
 
