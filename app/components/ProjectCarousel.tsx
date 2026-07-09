@@ -96,7 +96,7 @@ export default function ProjectCarousel({ projects }: { projects: Project[] }) {
               key={index}
               onClick={() => scrollTo(index)}
               className={`h-1.5 transition-all duration-300 rounded-full ${index === selectedIndex
-                  ? "w-8 bg-emerald-400"
+                  ? "w-8 bg-white"
                   : "w-4 bg-paper/40 hover:bg-paper/70"
                 }`}
               aria-label={`Go to slide ${index + 1}`}
