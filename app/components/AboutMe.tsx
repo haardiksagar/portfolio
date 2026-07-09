@@ -18,8 +18,8 @@ export default function AboutMe() {
         </div>
 
         {/* Image */}
-        <div className="w-full md:w-64 flex-shrink-0">
-          <div className="relative aspect-[4/5] overflow-hidden rounded-xl bg-panel border border-line/50">
+        <div className="w-half md:w-48 flex-shrink-0">
+          <div className="relative aspect-[4/5] overflow-hidden rounded-xl">
             {/* Using a standard img tag for simplicity based on the placeholder, but you can swap to next/image later */}
             <img
               src={about.image}

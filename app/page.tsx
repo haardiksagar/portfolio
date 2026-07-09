@@ -1,7 +1,9 @@
 import Header from "./components/Header";
 import AboutMe from "./components/AboutMe";
+import ProjectCarousel from "./components/ProjectCarousel";
 import Currently from "./components/Currently";
 import AccordionList from "./components/AccordionList";
+import FadeInSection from "./components/FadeInSection";
 import Terminal from "./components/Terminal";
 import Achievements from "./components/Achievements";
 import Footer from "./components/Footer";
@@ -15,17 +17,19 @@ export default function Home() {
 
       <AboutMe />
 
-      <section className="mt-16">
-        <SectionLabel>Projects</SectionLabel>
-        <AccordionList items={projects} />
-      </section>
+      <FadeInSection>
+        <section className="mt-16">
+          <SectionLabel>Projects</SectionLabel>
+          <ProjectCarousel projects={projects} />
+        </section>
+      </FadeInSection>
 
-      <Currently />
+      {/* <Currently />
 
       <section className="mt-16">
         <SectionLabel>Previously</SectionLabel>
         <AccordionList items={previously} />
-      </section>
+      </section> */}
 
       <section className="mt-16">
         <SectionLabel>Technical</SectionLabel>

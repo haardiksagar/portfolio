@@ -59,16 +59,28 @@ export const projects = [
     name: "PeerLink (2025)",
     role: "Creator",
     detail: "A framework-less peer-to-peer backend built from scratch to explore low-level networking, custom HTTP parsing, and concurrent TCP file transfers.",
+    image: "https://images.unsplash.com/photo-1550745165-9bc0b252726f?q=80&w=1200&auto=format&fit=crop",
+    github: "https://github.com/haardiksagar",
+    link: "https://github.com",
+    techStack: "C++ (ASIO)"
   },
   {
     name: "Trimly (2026)",
     role: "Creator",
     detail: "A production-style URL shortening service featuring stateless authentication, rate limiting, analytics, and scalable backend architecture.",
+    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=1200&auto=format&fit=crop",
+    github: "https://github.com/haardiksagar",
+    link: "https://github.com",
+    techStack: "GO / REDIS"
   },
   {
     name: "OmniRAG-Engine",
     role: "Creator",
     detail: "A fully local, privacy-first RAG engine with fault-tolerant document ingestion and hybrid vector search, built without relying on external AI APIs.",
+    image: "https://images.unsplash.com/photo-1620712943543-bcc4688e7485?q=80&w=1200&auto=format&fit=crop",
+    github: "https://github.com/haardiksagar",
+    link: "https://github.com",
+    techStack: "PYTHON / PYTORCH"
   },
 ];
 
