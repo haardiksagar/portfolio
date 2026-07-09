@@ -60,9 +60,9 @@ export const projects = [
     role: "Creator",
     detail: "A framework-less peer-to-peer backend built from scratch to explore low-level networking, custom HTTP parsing, and concurrent TCP file transfers.",
     image: "/assets/peerLink.png",
-    github: "https://github.com/haardiksagar",
-    link: "https://github.com",
-    techStack: "C++ (ASIO)"
+    github: "https://github.com/haardiksagar/Peer-Link",
+    link: "project-1h72y.vercel.app",
+    techStack: "Java(Core/Vanilla)"
   },
   {
     name: "Trimly (2026)",
@@ -71,21 +71,22 @@ export const projects = [
     image: "/assets/Trimly.png",
     github: "https://github.com/haardiksagar",
     link: "https://github.com",
-    techStack: "GO / REDIS"
+    techStack: "Spring Boot | Supabase | Vite | Vanilla JS"
   },
   {
     name: "OmniRAG-Engine",
     role: "Creator",
     detail: "A fully local, privacy-first RAG engine with fault-tolerant document ingestion and hybrid vector search, built without relying on external AI APIs.",
     image: "https://images.unsplash.com/photo-1620712943543-bcc4688e7485?q=80&w=1200&auto=format&fit=crop",
-    github: "https://github.com/haardiksagar",
+    github: "https://github.com/haardiksagar/OmniRAG-Engine",
     link: "https://github.com",
-    techStack: "PYTHON / PYTORCH"
+    techStack: "Python | LangChain | FAISS | Ollama"
   },
 ];
 
 export const stack = {
-  languages: "TypeScript, Python, SQL",
+  languages: "HTML5, CSS, C, C++, Java, Python",
+  AI_Skills_Tools: "LLM Prompting, Claude Code, Cursor, Antigravity",
   frontend: "React, Next.js, Tailwind",
   backend: "Node.js, FastAPI",
   infra: "AWS, Vercel, GitHub Actions",

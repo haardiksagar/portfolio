@@ -2,6 +2,7 @@ import { profile, stack } from "../content";
 
 const lines: [string, string][] = [
   ["languages", stack.languages],
+  [" AI Skills & Tools", stack.AI_Skills_Tools],
   ["frontend", stack.frontend],
   ["backend", stack.backend],
   ["infra", stack.infra],
@@ -9,11 +10,11 @@ const lines: [string, string][] = [
 
 export default function Terminal() {
   return (
-    <div className="rounded-lg border border-line/80 bg-panel overflow-hidden">
+    <div className="group rounded-lg  bg-panel overflow-hidden">
       <div className="flex items-center gap-1.5 border-b border-line/80 px-4 py-3">
-        <span className="h-2.5 w-2.5 rounded-full bg-[#3a3a3c]" />
-        <span className="h-2.5 w-2.5 rounded-full bg-[#3a3a3c]" />
-        <span className="h-2.5 w-2.5 rounded-full bg-[#3a3a3c]" />
+        <span className="h-2.5 w-2.5 rounded-full bg-[#3a3a3c] group-hover:bg-[#ff5f56] transition-colors duration-300" />
+        <span className="h-2.5 w-2.5 rounded-full bg-[#3a3a3c] group-hover:bg-[#ffbd2e] transition-colors duration-300" />
+        <span className="h-2.5 w-2.5 rounded-full bg-[#3a3a3c] group-hover:bg-[#27c93f] transition-colors duration-300" />
         <span className="ml-3 font-mono text-[11px] text-muted2">
           ~/{profile.handle} — zsh
         </span>

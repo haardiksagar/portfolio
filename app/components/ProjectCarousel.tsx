@@ -95,11 +95,10 @@ export default function ProjectCarousel({ projects }: { projects: Project[] }) {
             <button
               key={index}
               onClick={() => scrollTo(index)}
-              className={`h-1.5 transition-all duration-300 rounded-full ${
-                index === selectedIndex
+              className={`h-1.5 transition-all duration-300 rounded-full ${index === selectedIndex
                   ? "w-8 bg-emerald-400"
                   : "w-4 bg-paper/40 hover:bg-paper/70"
-              }`}
+                }`}
               aria-label={`Go to slide ${index + 1}`}
             />
           ))}
@@ -111,13 +110,12 @@ export default function ProjectCarousel({ projects }: { projects: Project[] }) {
         {projects.map((project, index) => (
           <div
             key={index}
-            className={`absolute inset-0 flex flex-col items-center text-center transition-all duration-700 ease-in-out ${
-              index === selectedIndex
+            className={`absolute inset-0 flex flex-col items-center text-center transition-all duration-700 ease-in-out ${index === selectedIndex
                 ? "opacity-100 translate-y-0 pointer-events-auto"
                 : "opacity-0 translate-y-4 pointer-events-none"
-            }`}
+              }`}
           >
-            <h3 className="font-medium text-3xl sm:text-4xl text-paper mb-3">
+            <h3 className="font-display text-3xl sm:text-4xl text-paper mb-3">
               {project.name}
             </h3>
             <p className="font-body text-sm sm:text-base text-muted max-w-2xl mb-4 leading-relaxed">
@@ -128,14 +126,14 @@ export default function ProjectCarousel({ projects }: { projects: Project[] }) {
                 {project.techStack}
               </p>
             )}
-            
+
             <div className="flex items-center gap-6">
               {project.github && (
                 <a
                   href={project.github}
                   target="_blank"
                   rel="noreferrer"
-                  className="text-emerald-400/80 hover:text-emerald-400 hover:-translate-y-1 transition-all"
+                  className="text-goldDim hover:text-goldDim hover:-translate-y-1 transition-all"
                   title="View GitHub Repository"
                 >
                   <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -149,7 +147,7 @@ export default function ProjectCarousel({ projects }: { projects: Project[] }) {
                   href={project.link}
                   target="_blank"
                   rel="noreferrer"
-                  className="text-emerald-400/80 hover:text-emerald-400 hover:-translate-y-1 transition-all"
+                  className="text-goldDim hover:text-goldDim hover:-translate-y-1 transition-all"
                   title="View Live Project"
                 >
                   <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
