@@ -8,6 +8,28 @@
     Arial, sans-serif;
   --font-mono: "JetBrains Mono", "Fira Code", ui-monospace, SFMono-Regular, Menlo,
     Consolas, "Liberation Mono", monospace;
+
+  /* Default Dark Mode Colors */
+  --color-ink: #0B0B0C;
+  --color-paper: #F2F1EC;
+  --color-panel: #141415;
+  --color-line: #242426;
+  --color-muted: #8B8B8D;
+  --color-muted2: #5C5C5E;
+  --color-gold: #C6A15B;
+  --color-goldDim: #8A7443;
+}
+
+.light {
+  /* Inverted Light Mode Colors */
+  --color-ink: #F2F1EC;
+  --color-paper: #0B0B0C;
+  --color-panel: #E5E4E0;
+  --color-line: #D4D3CF;
+  --color-muted: #6B6B6D;
+  --color-muted2: #8B8B8D;
+  --color-gold: #A48242;
+  --color-goldDim: #8A7443;
 }
 
 * {
@@ -33,15 +55,16 @@ html {
 }
 
 body {
-  background: #0b0b0c;
+  background: var(--color-ink);
   background-image:
     radial-gradient(ellipse 900px 500px at 15% -10%, rgba(198, 161, 91, 0.08), transparent),
     radial-gradient(ellipse 700px 500px at 100% 20%, rgba(198, 161, 91, 0.04), transparent);
+  transition: background-color 0.3s ease;
 }
 
 ::selection {
-  background: #c6a15b;
-  color: #0b0b0c;
+  background: var(--color-gold);
+  color: var(--color-ink);
 }
 
 a {
@@ -49,7 +72,7 @@ a {
 }
 
 :focus-visible {
-  outline: 1.5px solid #c6a15b;
+  outline: 1.5px solid var(--color-gold);
   outline-offset: 3px;
   border-radius: 2px;
 }
@@ -58,12 +81,12 @@ a {
   width: 10px;
 }
 ::-webkit-scrollbar-track {
-  background: #0b0b0c;
+  background: var(--color-ink);
 }
 ::-webkit-scrollbar-thumb {
-  background: #242426;
+  background: var(--color-line);
   border-radius: 8px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #3a3a3c;
+  background: var(--color-muted);
 }
