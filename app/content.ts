@@ -59,7 +59,7 @@ export const projects = [
     name: "PeerLink (2025)",
     role: "Creator",
     detail: "A framework-less peer-to-peer backend built from scratch to explore low-level networking, custom HTTP parsing, and concurrent TCP file transfers.",
-    image: "https://images.unsplash.com/photo-1550745165-9bc0b252726f?q=80&w=1200&auto=format&fit=crop",
+    image: "/assets/peerLink.png",
     github: "https://github.com/haardiksagar",
     link: "https://github.com",
     techStack: "C++ (ASIO)"
@@ -68,7 +68,7 @@ export const projects = [
     name: "Trimly (2026)",
     role: "Creator",
     detail: "A production-style URL shortening service featuring stateless authentication, rate limiting, analytics, and scalable backend architecture.",
-    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=1200&auto=format&fit=crop",
+    image: "/assets/Trimly.png",
     github: "https://github.com/haardiksagar",
     link: "https://github.com",
     techStack: "GO / REDIS"

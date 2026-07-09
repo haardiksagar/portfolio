@@ -60,10 +60,10 @@ export default function ProjectCarousel({ projects }: { projects: Project[] }) {
                   <img
                     src={project.image}
                     alt={project.name}
-                    className="w-full h-full object-cover"
+                    className="w-full h-full object-cover opacity-30"
                   />
                   {/* Overlay to ensure text readability */}
-                  <div className="absolute inset-0 bg-ink/75" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-ink/90 via-ink/60 to-ink/90" />
                 </div>
               )}
 
