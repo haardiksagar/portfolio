@@ -21,6 +21,7 @@ const config: Config = {
         display: ["var(--font-display)"],
         body: ["var(--font-body)"],
         mono: ["var(--font-mono)"],
+        cinzel: ["var(--font-cinzel)"],
       },
       maxWidth: {
         content: "680px",

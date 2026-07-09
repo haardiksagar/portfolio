@@ -1,6 +1,13 @@
 import type { Metadata } from "next";
+import localFont from "next/font/local";
 import "./globals.css";
 import { ThemeProvider } from "./components/ThemeProvider";
+
+const cinzel = localFont({
+  src: "../public/fonts/CinzelDecorative-Regular.ttf",
+  variable: "--font-cinzel",
+  display: "swap",
+});
 
 export const metadata: Metadata = {
   title: "Haardik S Sagar",
@@ -24,7 +31,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className="font-body bg-ink text-paper antialiased">
+      <body className={`font-body bg-ink text-paper antialiased ${cinzel.variable}`}>
         <ThemeProvider attribute="class" defaultTheme="dark" enableSystem>
           {/* {children} is where Next.js automatically injects your page.tsx content */}
           {children}
