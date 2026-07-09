@@ -10,8 +10,8 @@ const lines: [string, string][] = [
 
 export default function Terminal() {
   return (
-    <div className="group rounded-lg  bg-panel overflow-hidden">
-      <div className="flex items-center gap-1.5 border-b border-line/80 px-4 py-3">
+    <div className="group rounded-lg border border-neutral-800 bg-panel overflow-hidden">
+      <div className="flex items-center gap-1.5 border-b border-neutral-800 px-4 py-3">
         <span className="h-2.5 w-2.5 rounded-full bg-[#3a3a3c] group-hover:bg-[#ff5f56] transition-colors duration-300" />
         <span className="h-2.5 w-2.5 rounded-full bg-[#3a3a3c] group-hover:bg-[#ffbd2e] transition-colors duration-300" />
         <span className="h-2.5 w-2.5 rounded-full bg-[#3a3a3c] group-hover:bg-[#27c93f] transition-colors duration-300" />

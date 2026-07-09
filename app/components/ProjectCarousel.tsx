@@ -62,7 +62,7 @@ export default function ProjectCarousel({ projects }: { projects: Project[] }) {
                     <img
                       src={project.image}
                       alt={project.name}
-                      className="w-full h-full object-cover opacity-90"
+                      className="w-full h-full object-cover "
                     />
                   </div>
                 ) : (
