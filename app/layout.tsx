@@ -3,6 +3,7 @@ import localFont from "next/font/local";
 import "./globals.css";
 import { ThemeProvider } from "./components/ThemeProvider";
 import ParticleWaves from "./components/ParticleWaves";
+import Intro from "./components/Intro";
 
 const cinzel = localFont({
   src: "../public/fonts/CinzelDecorative-Regular.ttf",
@@ -33,6 +34,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body className={`font-body bg-ink text-paper antialiased ${cinzel.variable}`}>
+        <Intro name="haardik." label="Loading" />
         <ThemeProvider attribute="class" defaultTheme="dark" enableSystem>
           <ParticleWaves />
           {/* {children} is where Next.js automatically injects your page.tsx content */}
