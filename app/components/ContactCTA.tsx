@@ -16,7 +16,7 @@ export default function ContactCTA() {
         </p>
         <a
           href={`mailto:${profile.email}`}
-          className="inline-flex items-center gap-2 font-mono text-sm tracking-[0.1em] text-ink bg-gold hover:bg-paper transition-colors duration-300 uppercase px-6 py-3 rounded-full font-semibold"
+          className="inline-flex items-center gap-2 font-mono text-sm tracking-[0.1em] text-ink bg-paper hover:bg-goldDim transition-colors duration-300 uppercase px-6 py-3 rounded-full font-semibold"
         >
           Send an Email
           <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
