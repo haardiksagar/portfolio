@@ -35,11 +35,11 @@ export default function Home() {
         <SectionLabel>Technical</SectionLabel>
         <Terminal />
       </section>
-
-      <section className="mt-16">
+          
+      {/* <section className="mt-16">
         <SectionLabel>Achievements</SectionLabel>
         <Achievements />
-      </section>
+      </section> */}
 
       <Footer />
     </main>

@@ -40,7 +40,7 @@ export default function Header() {
           <span className="text-gold">.</span>
         </h1>
         
-        <nav className="sm:mt-6 flex flex-wrap items-center gap-x-5 gap-y-2 relative">
+        <nav className="sm:mt-6 flex flex-wrap items-center gap-x-5 gap-y-2 relative"> {/*backdrop-blur-md border border-white/10 rounded-full px-6 py-3 shadow-sm">*/}
           {socials.map((s) => {
             if (s.label === "MSG") {
               return (
