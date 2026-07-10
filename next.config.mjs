@@ -1,10 +1,12 @@
 /** @type {import('next').NextConfig} */
+const isProd = process.env.NODE_ENV === 'production';
+
 const nextConfig = {
-  output: 'export', // Forces Next.js to generate a static HTML/CSS/JS "out" folder
-  basePath: process.env.NODE_ENV === 'production' ? '/your-repo-name' : '',
+  output: 'export', // Required for GitHub Pages static hosting
+  basePath: isProd ? '/your-repository-name' : '',
   images: {
-    unoptimized: true, // GitHub Pages does not support Next.js default image optimization
+    unoptimized: true, // Disables Next.js server-side image optimization
   },
 };
 
-export default nextConfig;
+module.exports = nextConfig;
