@@ -61,6 +61,8 @@
 .name {
   position: absolute;
   display: flex;
+  opacity: 0;
+  visibility: hidden;
   font-family: var(--font-display, 'Space Grotesk'), ui-sans-serif, sans-serif;
   font-weight: 700;
   font-size: clamp(2.1rem, 8vw, 5.5rem);
@@ -70,15 +72,10 @@
 
 .letterMask {
   display: inline-block;
-  overflow: hidden;
 }
 
 .letter {
   display: inline-block;
-  opacity: 0;
-  visibility: hidden;
-  transform: translateY(110%);
-  will-change: transform;
 }
 
 .track {

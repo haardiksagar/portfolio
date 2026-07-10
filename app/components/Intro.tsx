@@ -29,7 +29,6 @@ export default function Intro({
   const counterRef = useRef<HTMLSpanElement>(null);
   const barRef = useRef<HTMLDivElement>(null);
   const nameRef = useRef<HTMLDivElement>(null);
-  const panelRefs = useRef<(HTMLDivElement | null)[]>([]);
   const tlRef = useRef<gsap.core.Timeline | null>(null);
 
   // Decide once, on mount, whether the intro should play at all.
@@ -57,8 +56,6 @@ export default function Intro({
       return;
     }
 
-    const letters = nameRef.current?.querySelectorAll(`.${styles.letter}`) ?? [];
-    const panels = panelRefs.current.filter(Boolean) as HTMLDivElement[];
     const counter = { val: 0 };
 
     const tl = gsap.timeline();
@@ -80,16 +77,16 @@ export default function Intro({
       .to(counterRef.current, { yPercent: -110, autoAlpha: 0, duration: 0.5, ease: 'power3.in' }, '+=0.15')
       .to(barRef.current, { autoAlpha: 0, duration: 0.3 }, '<')
       .fromTo(
-        letters,
-        { yPercent: 110, autoAlpha: 0 },
-        { yPercent: 0, autoAlpha: 1, duration: 0.9, stagger: 0.035, ease: 'power4.out' },
-        '-=0.25'
+        nameRef.current,
+        { y: 16, autoAlpha: 0 },
+        { y: 0, autoAlpha: 1, duration: 0.45, ease: 'power3.out' },
+        '+=0.05'
       )
-      .to(letters, { yPercent: -110, autoAlpha: 0, duration: 0.5, stagger: 0.02, ease: 'power3.in' }, '+=0.55')
+      .to(nameRef.current, { y: -16, autoAlpha: 0, duration: 0.45, ease: 'power3.in' }, '+=0.75')
       .to(
-        panels,
-        { yPercent: -100, duration: 0.9, ease: 'power4.inOut', stagger: 0.07, onComplete: finish },
-        '-=0.2'
+        overlayRef.current,
+        { autoAlpha: 0, duration: 0.8, ease: 'power2.inOut', onComplete: finish },
+        '-=0.05'
       );
 
     return () => {
@@ -107,13 +104,7 @@ export default function Intro({
     <div ref={overlayRef} className={styles.overlay}>
       <div className={styles.panels} aria-hidden="true">
         {[0, 1, 2, 3].map((i) => (
-          <div
-            key={i}
-            ref={(el) => {
-              panelRefs.current[i] = el;
-            }}
-            className={styles.panel}
-          />
+          <div key={i} className={styles.panel} />
         ))}
       </div>
 
