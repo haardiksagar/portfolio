@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Intro preview</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    background: #0a0a0a;
+    color: #f2f0ea;
+    font-family: 'Space Grotesk', sans-serif;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .page {
+    text-align: center;
+    padding: 2rem;
+  }
+  .page h1 { font-size: clamp(2rem, 6vw, 4rem); font-weight: 700; letter-spacing: -0.02em; }
+  .page p { margin-top: 1rem; color: rgba(242,240,234,0.6); font-family: 'JetBrains Mono', monospace; font-size: 0.85rem; }
+  .replay {
+    margin-top: 2rem;
+    background: transparent;
+    border: 1px solid rgba(242,240,234,0.3);
+    color: #f2f0ea;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.75rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 0.75rem 1.5rem;
+    cursor: pointer;
+  }
+  .replay:hover { border-color: #f2f0ea; }
+
+  .overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #0a0a0a;
+    color: #f2f0ea;
+    overflow: hidden;
+  }
+  .panels { position: absolute; inset: 0; z-index: 2; display: flex; }
+  .panel { flex: 1; background: #0a0a0a; border-right: 1px solid rgba(242,240,234,0.05); }
+  .panel:last-child { border-right: none; }
+
+  .stage {
+    position: relative;
+    z-index: 3;
+    width: min(90vw, 640px);
+    height: 160px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .eyebrow {
+    position: absolute;
+    top: -3rem;
+    left: 0;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: rgba(242,240,234,0.5);
+  }
+  .counter {
+    position: absolute;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: clamp(3.25rem, 11vw, 7rem);
+    font-weight: 500;
+    font-variant-numeric: tabular-nums;
+    letter-spacing: -0.03em;
+    line-height: 1;
+  }
+  .name {
+    position: absolute;
+    display: flex;
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 700;
+    font-size: clamp(2.1rem, 8vw, 5.5rem);
+    letter-spacing: -0.02em;
+    line-height: 1;
+  }
+  .letter-mask { display: inline-block; overflow: hidden; }
+  .letter { display: inline-block; will-change: transform; }
+  .track { position: absolute; bottom: -3rem; left: 0; right: 0; height: 1px; background: rgba(242,240,234,0.12); }
+  .bar { height: 100%; width: 0%; background: #f2f0ea; }
+  .skip {
+    position: absolute;
+    bottom: 2rem;
+    right: 2rem;
+    z-index: 4;
+    background: transparent;
+    border: none;
+    color: rgba(242,240,234,0.5);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    cursor: pointer;
+    padding: 0.5rem;
+  }
+  .skip:hover { color: #f2f0ea; }
+
+  @media (max-width: 640px) {
+    .panels { flex-direction: column; }
+  }
+</style>
+</head>
+<body>
+
+<div class="page">
+  <h1>Your site, underneath.</h1>
+  <p>this content was already mounted while the intro played</p>
+  <button class="replay" id="replay">Replay intro</button>
+</div>
+
+<div class="overlay" id="overlay">
+  <div class="panels" aria-hidden="true">
+    <div class="panel"></div>
+    <div class="panel"></div>
+    <div class="panel"></div>
+    <div class="panel"></div>
+  </div>
+
+  <div class="stage">
+    <span class="eyebrow">Loading</span>
+    <span class="counter" id="counter">000</span>
+    <div class="name" id="name" aria-hidden="true"></div>
+    <div class="track"><div class="bar" id="bar"></div></div>
+  </div>
+
+  <button class="skip" id="skip">Skip</button>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script>
+  const NAME = 'Studio';
+  const nameEl = document.getElementById('name');
+  nameEl.innerHTML = NAME.split('').map(c =>
+    `<span class="letter-mask"><span class="letter">${c === ' ' ? '&nbsp;' : c}</span></span>`
+  ).join('');
+
+  function playIntro() {
+    const overlay = document.getElementById('overlay');
+    overlay.style.display = 'flex';
+    const counterEl = document.getElementById('counter');
+    const barEl = document.getElementById('bar');
+    const letters = nameEl.querySelectorAll('.letter');
+    const panels = overlay.querySelectorAll('.panel');
+    const counter = { val: 0 };
+
+    gsap.set(overlay, { autoAlpha: 1 });
+    gsap.set(panels, { yPercent: 0 });
+    gsap.set(letters, { yPercent: 110, autoAlpha: 0 });
+    gsap.set(counterEl, { yPercent: 0, autoAlpha: 1 });
+    barEl.style.width = '0%';
+
+    const tl = gsap.timeline({
+      onComplete: () => { overlay.style.display = 'none'; }
+    });
+    window.__introTl = tl;
+
+    tl.to(counter, {
+      val: 100,
+      duration: 2,
+      ease: 'power2.inOut',
+      onUpdate: () => {
+        counterEl.textContent = String(Math.floor(counter.val)).padStart(3, '0');
+        barEl.style.width = counter.val + '%';
+      }
+    })
+    .to(counterEl, { yPercent: -110, autoAlpha: 0, duration: 0.5, ease: 'power3.in' }, '+=0.15')
+    .to(barEl, { autoAlpha: 0, duration: 0.3 }, '<')
+    .fromTo(letters,
+      { yPercent: 110, autoAlpha: 0 },
+      { yPercent: 0, autoAlpha: 1, duration: 0.9, stagger: 0.035, ease: 'power4.out' },
+      '-=0.25'
+    )
+    .to(letters, { yPercent: -110, autoAlpha: 0, duration: 0.5, stagger: 0.02, ease: 'power3.in' }, '+=0.55')
+    .to(panels, { yPercent: -100, duration: 0.9, ease: 'power4.inOut', stagger: 0.07 }, '-=0.2');
+  }
+
+  document.getElementById('skip').addEventListener('click', () => {
+    window.__introTl && window.__introTl.progress(1);
+  });
+  document.getElementById('replay').addEventListener('click', playIntro);
+
+  playIntro();
+</script>
+</body>
+</html>
