@@ -4,7 +4,7 @@ export default function SectionLabel({ children }: { children: React.ReactNode }
       <span className="font-display text-[19px] tracking-[0.15em] text-gold/80 select-none">
         /
       </span>
-      <h2 className="font-display text-[19px] tracking-[0.2em] uppercase text-paper">
+      <h2 className="font-display text-[19px] tracking-[0.2em] text-paper">
         {children}
       </h2>
       <span className="h-px flex-1 bg-line" />

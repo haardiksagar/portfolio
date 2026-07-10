@@ -5,7 +5,7 @@ export default function AboutMe() {
   return (
     <section className="mt-16">
       <div className="flex items-center gap-4 mb-6">
-        <h2 className="font-display text-3xl text-paper lowercase">
+        <h2 className="font-display text-2xl text-paper lowercase">
           / {about.eyebrow}
         </h2>
         <span className="h-px flex-1 bg-line" />
