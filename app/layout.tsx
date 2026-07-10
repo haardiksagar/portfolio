@@ -34,7 +34,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body className={`font-body bg-ink text-paper antialiased ${cinzel.variable}`}>
-        <Intro name="haardik." label="Loading" />
+        <Intro name="haardik." label="Loading" once={false} />
         <ThemeProvider attribute="class" defaultTheme="dark" enableSystem>
           <ParticleWaves />
           {/* {children} is where Next.js automatically injects your page.tsx content */}
