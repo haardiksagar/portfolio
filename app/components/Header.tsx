@@ -13,7 +13,7 @@ export default function Header() {
     const duration = 2000;
     const frameRate = 1000 / 60;
     const totalFrames = Math.round(duration / frameRate);
-    
+
     let counterInterval: NodeJS.Timeout;
 
     const startCounter = () => {
@@ -50,23 +50,23 @@ export default function Header() {
           {profile.handle}
           <span className="text-gold">.</span>
         </h1>
-        
-        <nav className="sm:mt-6 flex flex-wrap items-center gap-x-5 gap-y-2 relative"> {/*backdrop-blur-md border border-white/10 rounded-full px-6 py-3 shadow-sm">*/}
+
+        <nav className="sm:mt-6 flex flex-wrap items-center gap-x-5 gap-y-2 relative "> {/*backdrop-blur-md border border-white/10 rounded-full px-6 py-3 shadow-sm">*/}
           {socials.map((s) => {
             if (s.label === "MSG") {
               return (
                 <div key={s.label} className="relative flex items-center">
                   <button
                     onClick={() => setMsgOpen(!msgOpen)}
-                    className="font-mono text-xs tracking-[0.1em] text-muted hover:text-gold transition-colors duration-200 uppercase outline-none p-0 m-0 bg-transparent leading-none"
+                    className="font-mono font-bold text-xs tracking-[0.1em] text-muted hover:text-gold transition-colors duration-200 uppercase outline-none p-0 m-0 bg-transparent leading-none"
                   >
                     {s.label}
                   </button>
                   {msgOpen && (
                     <div className="absolute top-full mt-2 left-0 sm:left-auto sm:right-0 bg-panel border border-line rounded-md p-3 shadow-xl z-50 min-w-[200px] animate-fadeUp">
                       <p className="font-mono text-[10px] text-muted mb-1 uppercase tracking-wider">Email me at</p>
-                      <a 
-                        href={`mailto:${profile.email}`} 
+                      <a
+                        href={`mailto:${profile.email}`}
                         className="font-mono text-xs text-paper hover:text-gold transition-colors duration-200 block truncate"
                       >
                         {profile.email}
@@ -83,7 +83,7 @@ export default function Header() {
                 title={s.title}
                 target={s.href.startsWith("http") ? "_blank" : undefined}
                 rel={s.href.startsWith("http") ? "noopener noreferrer" : undefined}
-                className="font-mono text-xs tracking-[0.1em] text-muted hover:text-gold transition-colors duration-200 uppercase outline-none p-0 m-0 bg-transparent leading-none"
+                className="font-mono font-bold text-xs tracking-[0.1em] text-muted hover:text-gold transition-colors duration-200 uppercase outline-none p-0 m-0 bg-transparent leading-none"
               >
                 {s.label}
               </a>
@@ -91,13 +91,13 @@ export default function Header() {
           })}
         </nav>
       </div>
-      
+
       <p className="mt-5 font-mono text-sm text-muted max-w-[46ch]">
         <span className="text-goldDim">$</span> {profile.tagline}
       </p>
 
       <ThemeToggle />
-      
+
       <div className="mt-12 font-mono text-lg sm:text-xl text-muted tracking-wide animate-fadeUp" style={{ animationDelay: '0.2s' }}>
         i've been building things for <span className="text-paper font-semibold">{days.toLocaleString()}</span> days.
       </div>
