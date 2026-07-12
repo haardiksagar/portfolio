@@ -12,10 +12,10 @@ export const profile = {
 
 export const socials = [
   { label: "MSG", href: `mailto:${profile.email}`, title: "Email" },
-  { label: "X", href: "https://x.com/haardiiksagar", title: "Twitter/X" },
+  { label: "X", href: "", title: "Twitter/X" },
   { label: "IN", href: "https://www.linkedin.com/in/haardik-s-sagar/", title: "LinkedIn" },
   { label: "GH", href: "https://github.com/haardiksagar", title: "GitHub" },
-  { label: "TH", href: "https://www.threads.com/@haardiik_sagar", title: "Threads" },
+  { label: "TH", href: "", title: "Threads" },
 ];
 
 export const currently = {
